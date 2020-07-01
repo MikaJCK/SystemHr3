@@ -1,0 +1,14 @@
+wish a basic shell
+wish.c
+is an implementation of a basic shell that is used on a following way.
+when program is run with ./wish it adds wish>, prompt to the command line which hsows 
+that commands can be given to the shell. Commands can piped by putting '|' between them and they can done in paraller by using '&'. Using the flag '&' will also run the program in background if the command is alone on the commandline.
+
+There is 3 internal commands implemented. cd [direcotry path]. Can be used to move between directories. The implementation is done with chdir(cont char *path) function. 
+path arg1 arg2 ....arg3 can be used to define what paths are used to check the commands run on the shell. /bin/ is a constant argument and can\t be removed. Each time path is called the old arguments are erased. Example of what path does in the program: if user types ls and there is no ls program utility in the directory than the program will run through the paths to see if any of them have usable implementation of ls. In this case /bin/ls exist and can be run so it will be executed.
+Third one implemented is exit that is called by using exit. On exit the program just stops with a return code of 0.
+
+the program can be run with a text file that is filled with the required programs line by line.
+then the ./wish is run with and extra argument of the text file that has the commands. once run the program runs thruogh the commands and cant be stopped.
+Usage: ./wish {cmdfile}
+Errors: Allocating memory, Error executing [command], fork failed, Error changing directory
